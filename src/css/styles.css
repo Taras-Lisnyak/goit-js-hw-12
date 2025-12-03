@@ -7,12 +7,154 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form input{
+  padding: 10px;
+  width: 272px;
+}
+
+.form input:hover{
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.form input:active{
+  border: 1px solid #4E75FF;
+}
+
+.form button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background: #4E75FF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.form button:hover {
+  background: #6C8CFF;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #6C8CFF;
+}
+
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+.gallery-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  color: #333;
+  border-top: 1px solid #eee;
+  line-height: 1.4;
+}
+
+.info p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+  display: none; 
+}
+
+.loading-text.visible {
+  display: block;
+}
+
+.loader-wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  margin: 20px 0;          
+}
+
+
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  display: none; 
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader.visible {
+  display: inline-block; 
+}
+
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FF3D00;
+  width: 6px;
+  height: 6px;
+  transform: translate(150%, 150%);
+  border-radius: 50%;
+}
+
+.loader::before {
+  left: auto;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  transform: translate(-150%, -150%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
